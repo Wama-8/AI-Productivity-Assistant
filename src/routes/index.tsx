@@ -220,13 +220,13 @@ function Builder() {
           </div>
 
           <div className="mt-4 flex items-center justify-between">
-            <Button variant="outline" size="sm" disabled={stepIndex === 0} onClick={() => setStep(STEPS[Math.max(0, stepIndex - 1)].id)}>
+            <Button variant="outline" size="sm" disabled={stepIndex === 0} onClick={() => setStep(STEPS[Math.max(0, stepIndex - 1)]!.id)}>
               <ArrowLeft className="mr-1 h-3.5 w-3.5" /> Back
             </Button>
             <Button
               size="sm"
               disabled={stepIndex === STEPS.length - 1}
-              onClick={() => setStep(STEPS[Math.min(STEPS.length - 1, stepIndex + 1)].id)}
+              onClick={() => setStep(STEPS[Math.min(STEPS.length - 1, stepIndex + 1)]!.id)}
             >
               Next <ArrowRight className="ml-1 h-3.5 w-3.5" />
             </Button>
@@ -439,11 +439,11 @@ function ExperienceStep({ data, update }: StepProps) {
                   className="bg-card"
                 />
               ))}
-              {notes[e.id]?.check && <p className="text-[11px] text-muted-foreground">Fabrication check: {notes[e.id].check}</p>}
+              {notes[e.id]?.check && <p className="text-[11px] text-muted-foreground">Fabrication check: {notes[e.id]?.check}</p>}
               {!!notes[e.id]?.missing.length && (
                 <p className="text-[11px] text-muted-foreground">
                   <AlertTriangle className="mr-1 inline h-3 w-3 text-warning" />
-                  Missing detail that would strengthen this: {notes[e.id].missing.join("; ")}
+                  Missing detail that would strengthen this: {notes[e.id]?.missing.join("; ")}
                 </p>
               )}
             </div>
